@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <Posts path="/" />
-      <Post path="/posts/:id" />
     </Router>
   );
 }

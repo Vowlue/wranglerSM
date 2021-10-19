@@ -38,7 +38,11 @@ async function handleRequest(request) {
             content: content
           })
         }
-        return new Response(posts, {status: 200})
+        const headers = {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json'
+        }
+        return new Response(JSON.stringify(posts), {headers})
       }
       catch (err) {
         return new Response(`Error occurred while listing posts: ${err}`, {status: 500})

@@ -7,9 +7,10 @@ const Posts = () => {
   useEffect(() => {
     const getPosts = async () => {
       const resp = await fetch(
-        "https://serverless-api.signalnerve.workers.dev/api/posts"
+        "https://my-worker.chenray20.workers.dev/posts"
       );
       const postsResp = await resp.json();
+      console.log(postsResp)
       setPosts(postsResp);
     };
 

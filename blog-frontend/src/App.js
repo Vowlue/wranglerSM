@@ -1,11 +1,16 @@
 import { Router } from "@reach/router";
 
 import Posts from './components/posts'
-import Post from './components/post'
+
+var cardStyle = {
+  display: 'flex',
+  width: '100%',
+  height: '100%'
+}
 
 function App() {
   return (
-    <Router>
+    <Router style={cardStyle}>
       <Posts path="/" />
     </Router>
   );

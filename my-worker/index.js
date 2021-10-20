@@ -30,8 +30,8 @@ async function handleRequest(request) {
         const getPosts = await KV_2.list()
         const posts = []
         for (const key of getPosts.keys) {
+          const content = await KV_2.get(key['name'])
           const [title, name] = key['name'].split('.')
-          const content = await KV_2.get(key)
           posts.push({
             username: name,
             title: title,
@@ -42,7 +42,7 @@ async function handleRequest(request) {
           'Access-Control-Allow-Origin': '*',
           'Content-type': 'application/json'
         }
-        return new Response(JSON.stringify(posts), {headers})
+        return new Response(JSON.stringify(posts), { headers })
       }
       catch (err) {
         return new Response(`Error occurred while listing posts: ${err}`, {status: 500})
